@@ -1,0 +1,1324 @@
+/* General Styling */
+:root {
+    --primary-color: #273b55; /* Dark Blue/Charcoal */
+    --secondary-color: #bc9245; /* Gold/Bronze */
+    --background-light: #F8F8F8; /* Off-white */
+    --text-dark: #333333; /* Standard Charcoal for body text */
+    --text-light: #FFFFFF;
+    --accent-dark: #222222; /* Darker charcoal for contrasts, like navbar background */
+    --light-charcoal-bg: #EFEFEF; /* Lighter charcoal for subtle section distinction */
+
+
+    --font-heading: 'Georgia', serif; /* Elegant serif for headings */
+    --font-body: 'Roboto', sans-serif; /* Clean sans-serif for body */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--background-light);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--primary-color); /* Headings primarily dark blue */
+    margin-bottom: 15px;
+}
+
+h1 { font-size: 3.5em; line-height: 1.1; }
+h2 { font-size: 2.5em; margin-bottom: 30px; text-align: center; }
+h3 { font-size: 1.8em; }
+
+p {
+    margin-bottom: 15px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+ul {
+    list-style: none;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+}
+
+.btn-primary:hover {
+    background-color: #1a2c41; /* Darker primary */
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--secondary-color);
+    border: 2px solid var(--secondary-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+}
+
+/* Header & Navigation */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--accent-dark); /* Dark charcoal for navbar */
+    padding: 15px 40px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.navbar .logo {
+    font-family: var(--font-heading);
+    font-size: 2em;
+    font-weight: bold;
+    color: var(--secondary-color); /* Gold/Bronze logo */
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links li a {
+    color: var(--text-light);
+    font-weight: bold;
+    padding: 5px 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--secondary-color); /* Gold/Bronze underline */
+    transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::after,
+.nav-links li a.active::after {
+    width: 100%;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+    color: var(--secondary-color);
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 1.8em;
+    color: var(--text-light);
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero-section {
+    /* Using an image with the new brand colors, for example, a subtle gradient or pattern */
+    background: linear-gradient(rgba(39, 59, 85, 0.7), rgba(39, 59, 85, 0.7)), url('https://via.placeholder.com/1920x1080/273b55/bc9245?text=GiFTED+Hero') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text-light);
+}
+
+.hero-content {
+    max-width: 900px;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    color: var(--secondary-color); /* Gold/Bronze for hero headline */
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.3em;
+    margin-bottom: 40px;
+    color: var(--background-light);
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Section Common Styles */
+.section {
+    padding: 80px 0;
+}
+
+.section:nth-of-type(even) {
+    background-color: var(--light-charcoal-bg); /* Lighter charcoal for contrast */
+}
+
+/* About Short Section */
+.about-short p {
+    font-size: 1.1em;
+    max-width: 800px;
+    margin: 0 auto 20px auto;
+    text-align: center;
+}
+
+/* Talent Categories Grid */
+.talent-categories h2 {
+    margin-bottom: 40px;
+}
+
+.talent-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.talent-item {
+    background-color: var(--text-light);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 5px solid var(--primary-color); /* Primary color accent */
+}
+
+.talent-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.talent-item i {
+    font-size: 3em;
+    color: var(--secondary-color); /* Gold/Bronze icons */
+    margin-bottom: 15px;
+}
+
+.talent-item h3 {
+    color: var(--primary-color);
+    font-size: 1.4em;
+}
+
+/* GiFTED Tower Section */
+.gifted-tower .container {
+    padding-top: 0;
+}
+
+.tower-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.tower-text {
+    flex: 1;
+}
+
+.tower-text h2 {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.tower-text p {
+    margin-bottom: 30px;
+    font-size: 1.1em;
+}
+
+.tower-image-placeholder {
+    flex: 1;
+    min-height: 400px;
+    background-color: #e0e0e0;
+    border: 2px dashed var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-dark);
+    font-style: italic;
+    border-radius: 8px;
+    /* Placeholder image with new colors */
+    background-image: url('https://via.placeholder.com/600x400/273b55/bc9245?text=GiFTED+Tower');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: transparent; /* Hide placeholder text if image is visible */
+}
+
+/* Why Partner Section */
+.why-partner h2 {
+    margin-bottom: 40px;
+}
+
+.partner-advantages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.advantage-item {
+    background-color: var(--text-light);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-bottom: 5px solid var(--secondary-color); /* Secondary color accent */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.advantage-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.advantage-item i {
+    font-size: 2.5em;
+    color: var(--primary-color); /* Primary color icons */
+    margin-bottom: 15px;
+}
+
+.advantage-item h3 {
+    color: var(--primary-color);
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+    background-color: var(--accent-dark); /* Dark charcoal for footer */
+    color: var(--text-light);
+    padding: 50px 0 20px 0;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+footer .footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 40px;
+    padding: 0 20px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    text-align: left;
+}
+
+.footer-section h3 {
+    color: var(--secondary-color); /* Gold/Bronze for footer headings */
+    margin-bottom: 20px;
+    font-size: 1.3em;
+}
+
+.footer-section p {
+    margin-bottom: 10px;
+    color: var(--background-light);
+}
+
+.footer-section i {
+    margin-right: 10px;
+    color: var(--secondary-color); /* Gold/Bronze icons in footer */
+}
+
+.footer-section.social-links {
+    text-align: center;
+}
+
+.footer-section.social-links a {
+    color: var(--text-light);
+    font-size: 1.5em;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.footer-section.social-links a:hover {
+    color: var(--secondary-color);
+}
+
+.whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    background-color: #25D366; /* WhatsApp Green */
+    color: var(--text-light);
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.whatsapp-btn i {
+    font-size: 1.2em;
+    margin-right: 10px;
+    color: var(--text-light); /* Ensure icon color is white */
+}
+
+.whatsapp-btn:hover {
+    background-color: #1DA851;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 20px;
+    margin-top: 20px;
+    color: rgba(255,255,255,0.7);
+}
+
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .nav-links {
+        gap: 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.8em;
+    }
+
+    .hero-content p {
+        font-size: 1.1em;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    .tower-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .tower-text h2 {
+        text-align: center;
+    }
+
+    .tower-image-placeholder {
+        min-height: 300px;
+        width: 100%;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-section {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: var(--accent-dark);
+        position: absolute;
+        top: 70px; /* Adjust based on header height */
+        left: 0;
+        width: 100%;
+        padding: 20px 0;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .hero-content h1 {
+        font-size: 2.2em;
+    }
+
+    .hero-content p {
+        font-size: 1em;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .btn {
+        width: 80%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    .talent-grid, .partner-advantages-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Page Hero (for all sub-pages) */
+.page-hero {
+    background: linear-gradient(rgba(39, 59, 85, 0.8), rgba(39, 59, 85, 0.8)), url('https://via.placeholder.com/1920x400/273b55/bc9245?text=GiFTED') no-repeat center center/cover;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text-light);
+    margin-bottom: 40px;
+}
+
+.page-hero h1 {
+    color: var(--secondary-color);
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.page-hero p {
+    font-size: 1.2em;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Founder Story */
+.founder-story .story-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.story-image-placeholder {
+    flex: 0 0 350px; /* Fixed width for image, allowing text to wrap */
+    height: 350px;
+    background-color: var(--light-charcoal-bg);
+    border: 2px dashed var(--secondary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-dark);
+    font-style: italic;
+    border-radius: 8px;
+    background-image: url('https://via.placeholder.com/350x350/bc9245/273b55?text=Vivian+GiFTED+Founder'); /* Placeholder image for Vivian */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: transparent;
+}
+
+.story-text {
+    flex: 1;
+}
+
+.founder-story h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Mission, Vision, Values */
+.m_v_v-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.m_v_v-item {
+    background-color: var(--text-light);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-top: 5px solid var(--secondary-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.m_v_v-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+.m_v_v-item i {
+    font-size: 2.8em;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.m_v_v-item h3 {
+    color: var(--primary-color);
+    font-size: 1.6em;
+    margin-bottom: 15px;
+}
+
+.m_v_v-item ul {
+    text-align: left;
+    padding-left: 20px;
+    list-style: disc;
+    color: var(--text-dark);
+}
+
+.m_v_v-item ul li {
+    margin-bottom: 8px;
+}
+
+/* Impact Section */
+.impact-section .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: center;
+}
+
+.impact-content {
+    flex: 2; /* Takes more space than image */
+}
+
+.impact-content ul {
+    list-style: disc;
+    padding-left: 25px;
+    margin-bottom: 20px;
+}
+
+.impact-content ul li {
+    margin-bottom: 10px;
+    line-height: 1.8;
+}
+
+.impact-image-placeholder {
+    flex: 1;
+    min-height: 350px;
+    background-color: var(--light-charcoal-bg);
+    border: 2px dashed var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-dark);
+    font-style: italic;
+    border-radius: 8px;
+    background-image: url('https://via.placeholder.com/500x350/273b55/bc9245?text=GiFTED+Impact');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: transparent;
+}
+
+
+/* Responsive adjustments for about page */
+@media (max-width: 992px) {
+    .founder-story .story-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .story-image-placeholder {
+        margin-bottom: 30px;
+        flex: none; /* Remove fixed width */
+        width: 80%; /* Make it responsive */
+        max-width: 350px; /* But not too big */
+    }
+
+    .impact-section .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .impact-content {
+        flex: none;
+        width: 100%;
+    }
+    .impact-content ul {
+        text-align: left;
+    }
+    .impact-image-placeholder {
+        width: 100%;
+        max-width: 500px; /* Limit image size on smaller screens */
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-hero h1 {
+        font-size: 2.5em;
+    }
+    .page-hero p {
+        font-size: 1em;
+    }
+    .m_v_v-grid {
+        grid-template-columns: 1fr;
+    }
+    .m_v_v-item ul {
+        padding-left: 15px;
+    }
+}
+
+/* Talents Hero Section */
+.talents-hero {
+    background-image: linear-gradient(rgba(39, 59, 85, 0.8), rgba(39, 59, 85, 0.8)), url('https://via.placeholder.com/1920x400/273b55/bc9245?text=GiFTED+Talents');
+}
+
+/* Talents Showcase */
+.talents-showcase .section-description {
+    max-width: 800px;
+    margin: 0 auto 60px auto;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+.talents-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.talent-card {
+    background-color: var(--text-light);
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.05); /* Subtle border */
+    display: flex; /* For consistent height and flex content */
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.talent-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border-color: var(--secondary-color); /* Highlight border on hover */
+}
+
+.talent-card .card-icon {
+    font-size: 3.5em;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.talent-card h3 {
+    color: var(--primary-color);
+    font-size: 1.6em;
+    margin-bottom: 15px;
+}
+
+.talent-card p {
+    font-size: 0.95em;
+    color: var(--text-dark);
+    margin-bottom: 25px;
+    flex-grow: 1; /* Allows paragraphs to take available space */
+}
+
+.talent-card .btn-secondary {
+    padding: 8px 18px;
+    font-size: 0.9em;
+    border-width: 1px;
+    align-self: center; /* Center the button */
+}
+
+.talent-card .btn-secondary:hover {
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+}
+
+
+/* Call to Action section */
+.call-to-action {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    text-align: center;
+    padding: 60px 0;
+}
+
+.call-to-action h2 {
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+.call-to-action p {
+    font-size: 1.1em;
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    color: var(--background-light);
+}
+
+.call-to-action .btn-primary {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border: 2px solid var(--secondary-color);
+}
+
+.call-to-action .btn-primary:hover {
+    background-color: #a37c35; /* Darker gold */
+    border-color: #a37c35;
+    color: var(--text-light);
+}
+
+/* Responsive adjustments for talents page */
+@media (max-width: 768px) {
+    .talents-showcase .section-description {
+        margin-bottom: 40px;
+    }
+    .talents-grid {
+        grid-template-columns: 1fr;
+    }
+    .talent-card {
+        padding: 25px;
+    }
+    .talent-card .card-icon {
+        font-size: 3em;
+    }
+    .talent-card h3 {
+        font-size: 1.4em;
+    }
+    .talent-card p {
+        font-size: 0.9em;
+    }
+}
+
+/* Projects Hero Section */
+.projects-hero {
+    background-image: linear-gradient(rgba(39, 59, 85, 0.8), rgba(39, 59, 85, 0.8)), url('https://via.placeholder.com/1920x400/273b55/bc9245?text=GiFTED+Tower+Project');
+}
+
+/* GiFTED Tower Overview */
+.gifted-tower-overview .tower-intro-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin-top: 40px;
+}
+
+.tower-intro-text {
+    flex: 1;
+    text-align: left;
+}
+
+.tower-intro-text h2 {
+    text-align: left;
+}
+
+.tower-intro-text p {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}
+
+.tower-image-large-placeholder {
+    flex: 1;
+    min-height: 450px;
+    background-color: var(--light-charcoal-bg);
+    border: 3px dashed var(--secondary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary-color);
+    font-style: italic;
+    border-radius: 10px;
+    background-image: url('https://via.placeholder.com/700x450/273b55/bc9245?text=GiFTED+Tower+Rendering'); /* Example tower rendering */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: transparent;
+}
+
+/* Key Sections of GiFTED Tower */
+.tower-sections .section-description {
+    max-width: 800px;
+    margin: 0 auto 60px auto;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+.tower-features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.feature-card {
+    background-color: var(--text-light);
+    border-radius: 10px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+    padding: 30px;
+    text-align: center;
+    border-bottom: 4px solid var(--primary-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    border-color: var(--secondary-color);
+}
+
+.feature-card .card-icon {
+    font-size: 3.2em;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    font-size: 1.5em;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.feature-card p {
+    font-size: 0.95em;
+    color: var(--text-dark);
+}
+
+/* Project Roadmap */
+.project-roadmap .section-description {
+    max-width: 900px;
+    margin: 0 auto 40px auto;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+.roadmap-image-placeholder {
+    width: 100%;
+    height: 400px; /* Adjust height as needed */
+    background-color: var(--light-charcoal-bg);
+    border: 2px dashed var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary-color);
+    font-style: italic;
+    font-size: 1.2em;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    background-image: url('https://via.placeholder.com/1000x400/273b55/bc9245?text=GiFTED+Tower+Roadmap+Timeline'); /* Placeholder image for roadmap */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: transparent;
+}
+
+.roadmap-note {
+    text-align: center;
+    font-size: 1em;
+    color: #555;
+    margin-top: 20px;
+}
+
+/* Responsive adjustments for projects page */
+@media (max-width: 992px) {
+    .gifted-tower-overview .tower-intro-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .tower-intro-text h2 {
+        text-align: center;
+    }
+    .tower-image-large-placeholder {
+        width: 100%;
+        min-height: 350px;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-hero.projects-hero h1 {
+        font-size: 2.5em;
+    }
+    .page-hero.projects-hero p {
+        font-size: 1em;
+    }
+    .tower-features-grid {
+        grid-template-columns: 1fr;
+    }
+    .roadmap-image-placeholder {
+        height: 250px;
+        font-size: 1em;
+    }
+}
+
+/* Investors Hero Section */
+.investors-hero {
+    background-image: linear-gradient(rgba(39, 59, 85, 0.8), rgba(39, 59, 85, 0.8)), url('https://via.placeholder.com/1920x400/273b55/bc9245?text=GiFTED+Investments');
+}
+
+/* Why Invest Section */
+.why-invest .section-description {
+    max-width: 900px;
+    margin: 0 auto 60px auto;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+.invest-advantages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.invest-advantages-grid .advantage-item {
+    background-color: var(--text-light);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-top: 5px solid var(--secondary-color); /* Gold/Bronze accent */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.invest-advantages-grid .advantage-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.invest-advantages-grid .advantage-item i {
+    font-size: 3em;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.invest-advantages-grid .advantage-item h3 {
+    color: var(--primary-color);
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+/* Partnership Models Section */
+.partnership-models {
+    background-color: var(--light-charcoal-bg); /* Lighter background for contrast */
+}
+
+.partnership-models .section-description {
+    max-width: 900px;
+    margin: 0 auto 60px auto;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+.models-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.model-card {
+    background-color: var(--text-light);
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    padding: 30px;
+    text-align: center;
+    border-bottom: 4px solid var(--primary-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.model-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border-color: var(--secondary-color);
+}
+
+.model-card i {
+    font-size: 3.2em;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+.model-card h3 {
+    font-size: 1.6em;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.model-card p {
+    font-size: 0.95em;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.model-card ul {
+    list-style: none; /* Override default list style */
+    padding: 0;
+    text-align: left;
+    margin-top: auto; /* Push list to bottom */
+}
+
+.model-card ul li {
+    background-color: rgba(188, 146, 69, 0.1); /* Light gold background */
+    margin-bottom: 8px;
+    padding: 8px 15px;
+    border-radius: 5px;
+    color: var(--primary-color);
+    font-size: 0.9em;
+}
+
+.model-card ul li:last-child {
+    margin-bottom: 0;
+}
+
+/* Investor Call to Action Section */
+.investor-cta {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    text-align: center;
+    padding: 60px 0;
+}
+
+.investor-cta h2 {
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+.investor-cta p {
+    font-size: 1.1em;
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    color: var(--background-light);
+}
+
+.investor-cta .btn-primary {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border: 2px solid var(--secondary-color);
+    font-size: 1.1em;
+    padding: 15px 30px;
+}
+
+.investor-cta .btn-primary:hover {
+    background-color: #a37c35; /* Darker gold */
+    border-color: #a37c35;
+    color: var(--text-light);
+}
+
+.investor-cta .btn-primary i {
+    margin-right: 10px;
+}
+
+/* Responsive adjustments for investors page */
+@media (max-width: 992px) {
+    .invest-advantages-grid, .models-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .page-hero.investors-hero h1 {
+        font-size: 2.5em;
+    }
+    .page-hero.investors-hero p {
+        font-size: 1em;
+    }
+    .invest-advantages-grid, .models-grid {
+        grid-template-columns: 1fr;
+    }
+    .model-card ul {
+        text-align: center;
+        padding-left: 0;
+    }
+    .model-card ul li {
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* Contact Hero Section */
+.contact-hero {
+    background-image: linear-gradient(rgba(39, 59, 85, 0.8), rgba(39, 59, 85, 0.8)), url('https://via.placeholder.com/1920x400/273b55/bc9245?text=GiFTED+Contact');
+}
+
+/* Contact Details Section */
+.contact-details-section h2 {
+    margin-bottom: 40px;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.contact-info-block {
+    background-color: var(--text-light);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-bottom: 4px solid var(--secondary-color); /* Gold/Bronze accent */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-info-block:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.contact-info-block i {
+    font-size: 3em;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.contact-info-block h3 {
+    font-size: 1.6em;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.contact-info-block p {
+    font-size: 1em;
+    color: var(--text-dark);
+}
+
+.contact-info-block a {
+    color: var(--primary-color);
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.contact-info-block a:hover {
+    color: var(--secondary-color);
+}
+
+
+/* Contact Form Section */
+.contact-form-section {
+    background-color: var(--light-charcoal-bg);
+    padding-bottom: 80px;
+}
+
+.contact-form-section .section-description {
+    max-width: 700px;
+    margin: 0 auto 50px auto;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+.contact-form {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: var(--text-light);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: var(--primary-color);
+    font-size: 1.1em;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1em;
+    font-family: var(--font-body);
+    color: var(--text-dark);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input[type="text"]::placeholder,
+.form-group input[type="email"]::placeholder,
+.form-group textarea::placeholder {
+    color: #aaa;
+}
+
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--secondary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(188, 146, 69, 0.2); /* Light gold shadow */
+}
+
+.contact-form button[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2em;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+/* Responsive adjustments for contact page */
+@media (max-width: 768px) {
+    .page-hero.contact-hero h1 {
+        font-size: 2.5em;
+    }
+    .page-hero.contact-hero p {
+        font-size: 1em;
+    }
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    .contact-form {
+        padding: 30px;
+    }
+    .form-group label {
+        font-size: 1em;
+    }
+    .form-group input, .form-group select, .form-group textarea {
+        padding: 12px;
+    }
+    .contact-form button[type="submit"] {
+        font-size: 1em;
+        padding: 12px;
+    }
+}
