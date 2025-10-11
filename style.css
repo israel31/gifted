@@ -197,7 +197,7 @@ header {
     color: var(--text-light);
     overflow: hidden; /* Ensures video doesn't spill out */
     background-color: var(--primary-color); /* Fallback solid color */
-    background-image: url("https://via.placeholder.com/1920x1080/273b55/bc9245?text=GiFTED+Hero+Fallback"); /* Fallback image */
+    background-image: url("placeholder.png"); /* Fallback image */
     background-size: cover;
     background-position: center;
     top: 0;
