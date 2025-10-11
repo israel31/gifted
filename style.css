@@ -2,15 +2,14 @@
 :root {
     --primary-color: #273b55; /* Dark Blue/Charcoal */
     --secondary-color: #bc9245; /* Gold/Bronze */
-    --background-light: #F8F8F8; /* Off-white */
+    --background-light: #f8f8f8; /* Off-white */
     --text-dark: #333333; /* Standard Charcoal for body text */
-    --text-light: #FFFFFF;
+    --text-light: #ffffff;
     --accent-dark: #222222; /* Darker charcoal for contrasts, like navbar background */
-    --light-charcoal-bg: #EFEFEF; /* Lighter charcoal for subtle section distinction */
+    --light-charcoal-bg: #efefef; /* Lighter charcoal for subtle section distinction */
 
-
-    --font-heading: 'Georgia', serif; /* Elegant serif for headings */
-    --font-body: 'Roboto', sans-serif; /* Clean sans-serif for body */
+    --font-heading: "Open Sans", serif; /* Elegant serif for headings */
+    --font-body: "Roboto", sans-serif; /* Clean sans-serif for body */
 }
 
 * {
@@ -32,15 +31,29 @@ body {
     padding: 20px;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: var(--font-heading);
     color: var(--primary-color); /* Headings primarily dark blue */
     margin-bottom: 15px;
 }
 
-h1 { font-size: 3.5em; line-height: 1.1; }
-h2 { font-size: 2.5em; margin-bottom: 30px; text-align: center; }
-h3 { font-size: 1.8em; }
+h1 {
+    font-size: 3.5em;
+    line-height: 1.1;
+}
+h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    text-align: center;
+}
+h3 {
+    font-size: 1.8em;
+}
 
 p {
     margin-bottom: 15px;
@@ -62,7 +75,10 @@ ul {
     border-radius: 5px;
     font-weight: bold;
     text-align: center;
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
     border: none;
     cursor: pointer;
 }
@@ -87,24 +103,45 @@ ul {
     color: var(--text-light);
 }
 
+header {
+    overflow: visible;
+}
+
 /* Header & Navigation */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--accent-dark); /* Dark charcoal for navbar */
+    background-color: transparent; /* Dark charcoal for navbar */
     padding: 15px 40px;
-    position: sticky;
+    position: fixed;
+    width: 100%;
+    height: 10%;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.navbar .logo a {
+    display: flex;
+    align-items: center;
+}
+.navbar .logo a h1 {
+    font-family: var(--font-heading);
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    color: var(--secondary-color);
+    vertical-align: center; /* Gold/Bronze logo */
 }
 
-.navbar .logo {
-    font-family: var(--font-heading);
-    font-size: 2em;
-    font-weight: bold;
-    color: var(--secondary-color); /* Gold/Bronze logo */
+.navbar .logo a img {
+    height: 70px; /* Default height for desktop */
+    width: auto; /* Maintain aspect ratio */
+    vertical-align: middle; /* Align nicely with nav items if they were there */
+    transition: height 0.3s ease; /* Smooth transition on resize/hover if needed */
+    margin: 0;
+    padding: 0;
 }
 
 .nav-links {
@@ -121,7 +158,7 @@ ul {
 }
 
 .nav-links li a::after {
-    content: '';
+    content: "";
     position: absolute;
     left: 0;
     bottom: 0;
@@ -143,24 +180,60 @@ ul {
 
 .menu-toggle {
     display: none;
-    font-size: 1.8em;
-    color: var(--text-light);
+    font-size: 1.2em;
+    color: var(--secondary-color);
     cursor: pointer;
 }
 
 /* Hero Section */
+/* Hero Section - UPDATED for video background */
 .hero-section {
-    /* Using an image with the new brand colors, for example, a subtle gradient or pattern */
-    background: linear-gradient(rgba(39, 59, 85, 0.7), rgba(39, 59, 85, 0.7)), url('https://via.placeholder.com/1920x1080/273b55/bc9245?text=GiFTED+Hero') no-repeat center center/cover;
+    position: relative; /* Essential for positioning video and overlay */
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: var(--text-light);
+    overflow: hidden; /* Ensures video doesn't spill out */
+    background-color: var(--primary-color); /* Fallback solid color */
+    background-image: url("https://via.placeholder.com/1920x1080/273b55/bc9245?text=GiFTED+Hero+Fallback"); /* Fallback image */
+    background-size: cover;
+    background-position: center;
+    top: 0;
+}
+
+#heroVideo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 0; /* Ensures video is behind content and overlay */
+    transform: translate(-50%, -50%); /* Centers the video */
+    background-size: cover; /* Fallback for older browsers or video issues */
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(
+        39,
+        59,
+        85,
+        0.7
+    ); /* Dark blue overlay with 70% opacity */
+    z-index: 1; /* Ensures overlay is between video and content */
 }
 
 .hero-content {
+    position: relative; /* Ensures content is above the overlay */
+    z-index: 2; /* Ensures content is on top */
     max-width: 900px;
     padding: 20px;
 }
@@ -188,7 +261,9 @@ ul {
 }
 
 .section:nth-of-type(even) {
-    background-color: var(--light-charcoal-bg); /* Lighter charcoal for contrast */
+    background-color: var(
+        --light-charcoal-bg
+    ); /* Lighter charcoal for contrast */
 }
 
 /* About Short Section */
@@ -215,14 +290,16 @@ ul {
     background-color: var(--text-light);
     padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
     border-top: 5px solid var(--primary-color); /* Primary color accent */
 }
 
 .talent-item:hover {
     transform: translateY(-10px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
 .talent-item i {
@@ -265,7 +342,7 @@ ul {
     flex: 1;
     min-height: 400px;
     background-color: #e0e0e0;
-    border: 2px dashed var(--primary-color);
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -273,7 +350,7 @@ ul {
     font-style: italic;
     border-radius: 8px;
     /* Placeholder image with new colors */
-    background-image: url('https://via.placeholder.com/600x400/273b55/bc9245?text=GiFTED+Tower');
+    background-image: url("./tower.jpeg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -296,14 +373,16 @@ ul {
     background-color: var(--text-light);
     padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     border-bottom: 5px solid var(--secondary-color); /* Secondary color accent */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .advantage-item:hover {
     transform: translateY(-10px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
 .advantage-item i {
@@ -334,6 +413,11 @@ footer .footer-content {
     gap: 30px;
     margin-bottom: 40px;
     padding: 0 20px;
+    text-align: center;
+}
+
+footer .footer-content .contact-info p {
+    text-align: center;
 }
 
 .footer-section {
@@ -376,7 +460,7 @@ footer .footer-content {
 .whatsapp-btn {
     display: inline-flex;
     align-items: center;
-    background-color: #25D366; /* WhatsApp Green */
+    background-color: #25d366; /* WhatsApp Green */
     color: var(--text-light);
     padding: 10px 20px;
     border-radius: 50px;
@@ -392,49 +476,90 @@ footer .footer-content {
 }
 
 .whatsapp-btn:hover {
-    background-color: #1DA851;
+    background-color: #1da851;
 }
 
 .footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: 20px;
     margin-top: 20px;
-    color: rgba(255,255,255,0.7);
+    color: rgba(255, 255, 255, 0.7);
 }
-
 
 /* Responsive Design */
 @media (max-width: 992px) {
+    p {
+        text-align: left;
+        margin-top: 0;
+    }
+    h1 {
+        text-align: left;
+        margin: 0;
+    }
+    h2 {
+        text-align: left;
+        margin: 0;
+        font-size: 1.2em;
+    }
+    h3 {
+        font-size: 1em;
+        color: gray;
+    }
+    hr {
+        margin-top: 0;
+        padding: 0;
+        margin-bottom: 0.5rem;
+    }
     .nav-links {
         gap: 20px;
     }
 
     .hero-content h1 {
         font-size: 2.8em;
+        text-align: left;
     }
 
     .hero-content p {
         font-size: 1.1em;
+        text-align: left;
     }
 
-    h2 {
-        font-size: 2em;
+    .about-short p {
+        text-align: left;
+    }
+    .advantage-item p {
+        text-align: center;
+    }
+
+    .advantage-item .fas,
+    .m_v_v-item .fas {
+        display: block;
+        width: 100%;
+    }
+
+    .talent-item h3,
+    .advantage-item h3 {
+        font-size: 1em;
+        font-weight: 700;
     }
 
     .tower-content {
         flex-direction: column;
         text-align: center;
     }
+    .tower-text p {
+        text-align: left;
+    }
 
     .tower-text h2 {
-        text-align: center;
+        text-align: left;
     }
 
     .tower-image-placeholder {
         min-height: 300px;
         width: 100%;
     }
-    
+
     .footer-content {
         flex-direction: column;
         align-items: center;
@@ -461,7 +586,7 @@ footer .footer-content {
         left: 0;
         width: 100%;
         padding: 20px 0;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     }
 
     .nav-links.active {
@@ -497,17 +622,25 @@ footer .footer-content {
     }
 
     h2 {
-        font-size: 1.8em;
+        font-size: 1.4em;
+        margin-bottom: 0;
     }
 
-    .talent-grid, .partner-advantages-grid {
+    .talent-grid,
+    .partner-advantages-grid {
         grid-template-columns: 1fr;
+        padding: 1.5rem;
     }
 }
 
 /* Page Hero (for all sub-pages) */
 .page-hero {
-    background: linear-gradient(rgba(39, 59, 85, 0.8), rgba(39, 59, 85, 0.8)), url('https://via.placeholder.com/1920x400/273b55/bc9245?text=GiFTED') no-repeat center center/cover;
+    /* background:
+        linear-gradient(rgba(39, 59, 85, 0.8), rgba(39, 59, 85, 0.8)),
+        url("https://via.placeholder.com/1920x400/273b55/bc9245?text=GiFTED")
+            no-repeat center center/cover;
+            */
+    background-color: var(--primary-color);
     min-height: 300px;
     display: flex;
     align-items: center;
@@ -547,7 +680,7 @@ footer .footer-content {
     color: var(--text-dark);
     font-style: italic;
     border-radius: 8px;
-    background-image: url('https://via.placeholder.com/350x350/bc9245/273b55?text=Vivian+GiFTED+Founder'); /* Placeholder image for Vivian */
+    background-image: url("https://via.placeholder.com/350x350/bc9245/273b55?text=Vivian+GiFTED+Founder"); /* Placeholder image for Vivian */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -575,14 +708,16 @@ footer .footer-content {
     background-color: var(--text-light);
     padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     border-top: 5px solid var(--secondary-color);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .m_v_v-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
 
 .m_v_v-item i {
@@ -642,13 +777,12 @@ footer .footer-content {
     color: var(--text-dark);
     font-style: italic;
     border-radius: 8px;
-    background-image: url('https://via.placeholder.com/500x350/273b55/bc9245?text=GiFTED+Impact');
+    background-image: url("https://via.placeholder.com/500x350/273b55/bc9245?text=GiFTED+Impact");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     color: transparent;
 }
-
 
 /* Responsive adjustments for about page */
 @media (max-width: 992px) {
@@ -656,7 +790,9 @@ footer .footer-content {
         flex-direction: column;
         text-align: center;
     }
-
+    .story-text p {
+        text-align: left;
+    }
     .story-image-placeholder {
         margin-bottom: 30px;
         flex: none; /* Remove fixed width */
@@ -671,6 +807,9 @@ footer .footer-content {
     .impact-content {
         flex: none;
         width: 100%;
+    }
+    .impact-content p {
+        text-align: left;
     }
     .impact-content ul {
         text-align: left;
@@ -699,7 +838,14 @@ footer .footer-content {
 
 /* Talents Hero Section */
 .talents-hero {
-    background-image: linear-gradient(rgba(39, 59, 85, 0.8), rgba(39, 59, 85, 0.8)), url('https://via.placeholder.com/1920x400/273b55/bc9245?text=GiFTED+Talents');
+    padding-top: 10vh;
+    /*background-image: linear-gradient(
+            rgba(39, 59, 85, 0.8),
+            rgba(39, 59, 85, 0.8)
+        ),
+        url("https://via.placeholder.com/1920x400/273b55/bc9245?text=GiFTED+Talents");
+        */
+    background-color: var(--primary-color);
 }
 
 /* Talents Showcase */
@@ -719,11 +865,14 @@ footer .footer-content {
 .talent-card {
     background-color: var(--text-light);
     border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
     padding: 30px;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    border: 1px solid rgba(0,0,0,0.05); /* Subtle border */
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05); /* Subtle border */
     display: flex; /* For consistent height and flex content */
     flex-direction: column;
     justify-content: space-between;
@@ -731,7 +880,7 @@ footer .footer-content {
 
 .talent-card:hover {
     transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     border-color: var(--secondary-color); /* Highlight border on hover */
 }
 
@@ -743,12 +892,12 @@ footer .footer-content {
 
 .talent-card h3 {
     color: var(--primary-color);
-    font-size: 1.6em;
+    font-size: 1em;
     margin-bottom: 15px;
 }
 
 .talent-card p {
-    font-size: 0.95em;
+    font-size: 0.85em;
     color: var(--text-dark);
     margin-bottom: 25px;
     flex-grow: 1; /* Allows paragraphs to take available space */
@@ -765,7 +914,6 @@ footer .footer-content {
     background-color: var(--secondary-color);
     color: var(--text-light);
 }
-
 
 /* Call to Action section */
 .call-to-action {
@@ -823,7 +971,14 @@ footer .footer-content {
 
 /* Projects Hero Section */
 .projects-hero {
-    background-image: linear-gradient(rgba(39, 59, 85, 0.8), rgba(39, 59, 85, 0.8)), url('https://via.placeholder.com/1920x400/273b55/bc9245?text=GiFTED+Tower+Project');
+    padding-top: 10vh;
+    /* background-image: linear-gradient(
+            rgba(39, 59, 85, 0.8),
+            rgba(39, 59, 85, 0.8)
+        ),
+        url("https://via.placeholder.com/1920x400/273b55/bc9245?text=GiFTED+Tower+Project");
+        */
+    background-color: var(--primary-color);
 }
 
 /* GiFTED Tower Overview */
@@ -859,7 +1014,7 @@ footer .footer-content {
     color: var(--primary-color);
     font-style: italic;
     border-radius: 10px;
-    background-image: url('https://via.placeholder.com/700x450/273b55/bc9245?text=GiFTED+Tower+Rendering'); /* Example tower rendering */
+    background-image: url("https://via.placeholder.com/700x450/273b55/bc9245?text=GiFTED+Tower+Rendering"); /* Example tower rendering */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -883,16 +1038,18 @@ footer .footer-content {
 .feature-card {
     background-color: var(--text-light);
     border-radius: 10px;
-    box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.07);
     padding: 30px;
     text-align: center;
     border-bottom: 4px solid var(--primary-color);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .feature-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
     border-color: var(--secondary-color);
 }
 
@@ -934,7 +1091,7 @@ footer .footer-content {
     font-size: 1.2em;
     border-radius: 10px;
     margin-bottom: 30px;
-    background-image: url('https://via.placeholder.com/1000x400/273b55/bc9245?text=GiFTED+Tower+Roadmap+Timeline'); /* Placeholder image for roadmap */
+    background-image: url("https://via.placeholder.com/1000x400/273b55/bc9245?text=GiFTED+Tower+Roadmap+Timeline"); /* Placeholder image for roadmap */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -981,7 +1138,13 @@ footer .footer-content {
 
 /* Investors Hero Section */
 .investors-hero {
-    background-image: linear-gradient(rgba(39, 59, 85, 0.8), rgba(39, 59, 85, 0.8)), url('https://via.placeholder.com/1920x400/273b55/bc9245?text=GiFTED+Investments');
+    /* background-image: linear-gradient(
+            rgba(39, 59, 85, 0.8),
+            rgba(39, 59, 85, 0.8)
+        ),
+        url("https://via.placeholder.com/1920x400/273b55/bc9245?text=GiFTED+Investments");
+        */
+    background-color: var(--primary-color);
 }
 
 /* Why Invest Section */
@@ -1003,14 +1166,16 @@ footer .footer-content {
     background-color: var(--text-light);
     padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     border-top: 5px solid var(--secondary-color); /* Gold/Bronze accent */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .invest-advantages-grid .advantage-item:hover {
     transform: translateY(-8px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
 .invest-advantages-grid .advantage-item i {
@@ -1027,7 +1192,9 @@ footer .footer-content {
 
 /* Partnership Models Section */
 .partnership-models {
-    background-color: var(--light-charcoal-bg); /* Lighter background for contrast */
+    background-color: var(
+        --light-charcoal-bg
+    ); /* Lighter background for contrast */
 }
 
 .partnership-models .section-description {
@@ -1046,18 +1213,20 @@ footer .footer-content {
 .model-card {
     background-color: var(--text-light);
     border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
     padding: 30px;
     text-align: center;
     border-bottom: 4px solid var(--primary-color);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
 }
 
 .model-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     border-color: var(--secondary-color);
 }
 
@@ -1140,7 +1309,8 @@ footer .footer-content {
 
 /* Responsive adjustments for investors page */
 @media (max-width: 992px) {
-    .invest-advantages-grid, .models-grid {
+    .invest-advantages-grid,
+    .models-grid {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
 }
@@ -1152,7 +1322,8 @@ footer .footer-content {
     .page-hero.investors-hero p {
         font-size: 1em;
     }
-    .invest-advantages-grid, .models-grid {
+    .invest-advantages-grid,
+    .models-grid {
         grid-template-columns: 1fr;
     }
     .model-card ul {
@@ -1168,7 +1339,12 @@ footer .footer-content {
 
 /* Contact Hero Section */
 .contact-hero {
-    background-image: linear-gradient(rgba(39, 59, 85, 0.8), rgba(39, 59, 85, 0.8)), url('https://via.placeholder.com/1920x400/273b55/bc9245?text=GiFTED+Contact');
+    /* background-image: linear-gradient(
+            rgba(39, 59, 85, 0.8),
+            rgba(39, 59, 85, 0.8)
+        ),
+        url("https://via.placeholder.com/1920x400/273b55/bc9245?text=GiFTED+Contact"); */
+    background-color: var(--primary-color);
 }
 
 /* Contact Details Section */
@@ -1187,14 +1363,16 @@ footer .footer-content {
     background-color: var(--text-light);
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     border-bottom: 4px solid var(--secondary-color); /* Gold/Bronze accent */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .contact-info-block:hover {
     transform: translateY(-8px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
 .contact-info-block i {
@@ -1224,7 +1402,6 @@ footer .footer-content {
     color: var(--secondary-color);
 }
 
-
 /* Contact Form Section */
 .contact-form-section {
     background-color: var(--light-charcoal-bg);
@@ -1244,7 +1421,7 @@ footer .footer-content {
     background-color: var(--text-light);
     padding: 40px;
     border-radius: 10px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
 .form-group {
@@ -1270,7 +1447,9 @@ footer .footer-content {
     font-size: 1em;
     font-family: var(--font-body);
     color: var(--text-dark);
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .form-group input[type="text"]::placeholder,
@@ -1278,7 +1457,6 @@ footer .footer-content {
 .form-group textarea::placeholder {
     color: #aaa;
 }
-
 
 .form-group input[type="text"]:focus,
 .form-group input[type="email"]:focus,
@@ -1314,7 +1492,9 @@ footer .footer-content {
     .form-group label {
         font-size: 1em;
     }
-    .form-group input, .form-group select, .form-group textarea {
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
         padding: 12px;
     }
     .contact-form button[type="submit"] {
