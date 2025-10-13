@@ -1,23 +1,37 @@
 document.addEventListener('DOMContentLoaded', function() {
+    
+    // --- Animated Mobile Menu Toggle ---
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
 
     if (menuToggle && navLinks) {
         menuToggle.addEventListener('click', function() {
             navLinks.classList.toggle('active');
-            menuToggle.querySelector('i').classList.toggle('fa-bars');
-            menuToggle.querySelector('i').classList.toggle('fa-times'); // Change icon to 'X'
+            
+            const icon = menuToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
         });
+    }
 
-        // Close nav menu when a link is clicked (for mobile)
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                if (navLinks.classList.contains('active')) {
-                    navLinks.classList.remove('active');
-                    menuToggle.querySelector('i').classList.remove('fa-times');
-                    menuToggle.querySelector('i').classList.add('fa-bars');
+    // --- Scroll Animation ---
+    const elementsToAnimate = document.querySelectorAll('.fade-up');
+    
+    if (elementsToAnimate.length > 0) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                // CORRECTED THIS LINE: 'isIntersecting' is the correct property.
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
                 }
             });
+        }, {
+            threshold: 0.1 // Triggers when 10% of the element is visible
+        });
+
+        elementsToAnimate.forEach(element => {
+            observer.observe(element);
         });
     }
 });
