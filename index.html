@@ -8,7 +8,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400&display=swap"
             rel="stylesheet"
         />
         <link
@@ -17,178 +17,275 @@
         />
     </head>
     <body>
-        <header>
-            <nav class="navbar">
-                <div class="logo">
-                    <a href="index.html">
-                        <img src="logo.png" alt="Gifted Logo" />
-                    </a>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="about.html">About Gifted</a></li>
-                    <li><a href="talents.html">Talents / Industries</a></li>
-                    <li><a href="projects.html">Projects / Gifted Tower</a></li>
-                    <li><a href="investors.html">Investors / Partners</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-                <div class="menu-toggle">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </nav>
+        <header class="main-header">
+            <div class="container">
+                <nav class="navbar">
+                    <div class="logo">
+                        <a href="index.html"
+                            ><img src="logo.png" alt="Gifted Logo"
+                        /></a>
+                    </div>
+                    <ul class="nav-links">
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="talents.html">Talents</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="investors.html">Investors</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                    <div class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </nav>
+            </div>
         </header>
 
         <main>
-            <section class="hero-section">
+            <section class="hero-video-section">
+                <video autoplay muted loop playsinline class="hero-video">
+                    <source src="homepage-bg-video.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video>
+                <div class="hero-overlay"></div>
                 <div class="hero-content container fade-up">
-                    <h1>Unleashing Nigerian Brilliance to the Global Stage</h1>
-                    <p>
+                    <h1>Unleashing Nigerian Brilliance to the Global Stage.</h1>
+                    <p class="hero-subtitle">
                         Empowering exceptional Nigerian talents across diverse
                         industries to achieve global recognition and impact.
                     </p>
-                    <div class="hero-buttons">
-                        <a href="talents.html" class="btn btn-gold-outline"
-                            >Explore Talents</a
-                        >
-                        <a href="investors.html" class="btn btn-gold-solid"
-                            >Become a Partner</a
-                        >
-                    </div>
+                    <a href="investors.html" class="btn">Become a Partner</a>
                 </div>
+                <a
+                    href="#about-intro"
+                    class="scroll-down-link"
+                    aria-label="Scroll down"
+                >
+                    <i class="fas fa-arrow-down"></i>
+                </a>
             </section>
 
-            <section class="section about-feature-section">
+            <section id="about-intro" class="section about-intro">
                 <div class="container fade-up">
-                    <h2 class="about-title">About Gifted</h2>
-                    <p class="about-description">
-                        Gifted is a visionary platform dedicated to identifying,
-                        nurturing, and showcasing the immense creative and
-                        innovative potential within Nigeria. We connect
-                        extraordinary talents with global opportunities,
-                        fostering economic growth and cultural exchange.
-                    </p>
-                    <div class="about-cta">
-                        <a href="about.html" class="btn btn-gold-outline"
-                            >Learn More About Us</a
-                        >
-                    </div>
-                </div>
-            </section>
-
-            <section class="section">
-                <div class="container">
-                    <h2 class="text-center fade-up">Our Talent Categories</h2>
-                    <hr class="fade-up" />
-                    <div class="talent-showcase-grid">
-                        <div class="talent-preview-card fade-up">
-                            <div class="card-image-wrapper">
-                                <img
-                                    src="./fashion-design.jpeg"
-                                    alt="Fashion Design"
-                                />
-                            </div>
-                            <div class="card-content">
-                                <h3>Fashion & Design</h3>
-                                <p>
-                                    Showcasing vibrant Nigerian fashion, from
-                                    haute couture to traditional wear.
-                                </p>
-                                <a
-                                    href="talents.html"
-                                    class="btn btn-gold-outline"
-                                    >View Portfolios</a
-                                >
-                            </div>
-                        </div>
-                        <div class="talent-preview-card fade-up">
-                            <div class="card-image-wrapper">
-                                <img src="./visual-art.jpeg" alt="Visual Art" />
-                            </div>
-                            <div class="card-content">
-                                <h3>Visual & Performing Arts</h3>
-                                <p>
-                                    Highlighting artists telling unique stories
-                                    through captivating works and performances.
-                                </p>
-                                <a
-                                    href="talents.html"
-                                    class="btn btn-gold-outline"
-                                    >Explore Artists</a
-                                >
-                            </div>
-                        </div>
-                        <div class="talent-preview-card fade-up">
-                            <div class="card-image-wrapper">
-                                <img
-                                    src="./tech.jpeg"
-                                    alt="Tech Innovation"
-                                />
-                            </div>
-                            <div class="card-content">
-                                <h3>Tech & Innovation</h3>
-                                <p>
-                                    Connecting brilliant minds in software
-                                    development, AI, and digital solutions.
-                                </p>
-                                <a
-                                    href="talents.html"
-                                    class="btn btn-gold-outline"
-                                    >Discover Innovators</a
-                                >
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section tower-section-wrapper">
-                <div class="container fade-up">
-                    <div class="tower-section">
-                        <div class="tower-image-placeholder"></div>
-                        <div class="tower-text card-floating">
-                            <h2>The Gifted Tower</h2>
-                            <p>
-                                A landmark initiative, The Gifted Tower will be
-                                a beacon of innovation and creativity – a
-                                multifaceted hub designed to house creative
-                                studios, exhibition spaces, elite lodges, and a
-                                dynamic arena for events, fostering a vibrant
-                                ecosystem for talent development and global
-                                collaboration.
-                            </p>
-                            <a href="projects.html" class="btn btn-gold-solid"
-                                >Explore The Project</a
+                    <div class="about-intro-content">
+                        <h2 class="section-title">
+                            Gifted is a visionary platform dedicated to
+                            identifying, nurturing, and showcasing the immense
+                            creative and innovative potential within Nigeria.
+                        </h2>
+                        <div class="about-intro-link">
+                            <a href="about.html"
+                                >More about our mission & vision</a
                             >
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section class="section">
+            <section class="section talent-showcase-editorial">
                 <div class="container">
-                    <h2 class="text-center fade-up">
+                    <div class="talent-feature fade-up">
+                        <div class="talent-image">
+                            <img
+                                src="fashion-design.jpeg"
+                                alt="Fashion & Design"
+                            />
+                        </div>
+                        <div class="talent-description">
+                            <h3>Fashion Designers</h3>
+                            <p>
+                                Showcasing vibrant Nigerian fashion, from haute
+                                couture to traditional wear, reinterpreting
+                                heritage with modern aesthetics.
+                            </p>
+                            <a href="talents.html" class="text-link"
+                                >Explore Portfolios</a
+                            >
+                        </div>
+                    </div>
+
+                    <div class="talent-feature talent-feature-reverse fade-up">
+                        <div class="talent-image">
+                            <img
+                                src="visual-artist.jpg"
+                                alt="Visual & Performing Arts"
+                            />
+                        </div>
+                        <div class="talent-description">
+                            <h3>Visual Artists</h3>
+                            <p>
+                                From contemporary paintings and sculptures to
+                                digital art, we highlight artists telling unique
+                                stories through their captivating works.
+                            </p>
+                            <a href="talents.html" class="text-link"
+                                >Discover Artists</a
+                            >
+                        </div>
+                    </div>
+
+                    <div class="talent-feature fade-up">
+                        <div class="talent-image">
+                            <img
+                                src="musician.jpg"
+                                alt="Music & Performing Arts"
+                            />
+                        </div>
+                        <div class="talent-description">
+                            <h3>Musicians & Performing Arts</h3>
+                            <p>
+                                Amplifying the rich sounds of Nigeria, including
+                                Afrobeat, Highlife, traditional music, and
+                                dynamic performing artists.
+                            </p>
+                            <a href="talents.html" class="text-link"
+                                >Hear The Sound</a
+                            >
+                        </div>
+                    </div>
+
+                    <div class="talent-feature talent-feature-reverse fade-up">
+                        <div class="talent-image">
+                            <img src="tech.jpeg" alt="Tech & Innovation" />
+                        </div>
+                        <div class="talent-description">
+                            <h3>Tech Innovators</h3>
+                            <p>
+                                Connecting brilliant minds in software
+                                development, AI, fintech, and digital solutions
+                                to global tech ecosystems.
+                            </p>
+                            <a href="talents.html" class="text-link"
+                                >View Projects</a
+                            >
+                        </div>
+                    </div>
+
+                    <div class="talent-feature fade-up">
+                        <div class="talent-image">
+                            <img
+                                src="athlete.jpeg"
+                                alt="Sportsmen & Athletes"
+                            />
+                        </div>
+                        <div class="talent-description">
+                            <h3>Sportsmen & Athletes</h3>
+                            <p>
+                                Supporting emerging and established athletes in
+                                various sports, helping them achieve
+                                international success and recognition.
+                            </p>
+                            <a href="talents.html" class="text-link"
+                                >View Profiles</a
+                            >
+                        </div>
+                    </div>
+
+                    <div class="talent-feature talent-feature-reverse fade-up">
+                        <div class="talent-image">
+                            <img
+                                src="leather-crafts.jpg"
+                                alt="Luxury Leather Crafts"
+                            />
+                        </div>
+                        <div class="talent-description">
+                            <h3>Luxury Leather Crafts</h3>
+                            <p>
+                                Highlighting exquisite Nigerian craftsmanship in
+                                shoemaking and premium leather goods, blending
+                                tradition with luxury.
+                            </p>
+                            <a href="talents.html" class="text-link"
+                                >View Collections</a
+                            >
+                        </div>
+                    </div>
+
+                    <div class="talent-feature fade-up">
+                        <div class="talent-image">
+                            <img
+                                src="agriculture.jpeg"
+                                alt="Agricultural Innovators"
+                            />
+                        </div>
+                        <div class="talent-description">
+                            <h3>Agricultural Innovators</h3>
+                            <p>
+                                Promoting sustainable agricultural practices and
+                                innovative solutions transforming food
+                                production and security in Africa.
+                            </p>
+                            <a href="talents.html" class="text-link"
+                                >Discover Ventures</a
+                            >
+                        </div>
+                    </div>
+
+                    <div class="talent-feature talent-feature-reverse fade-up">
+                        <div class="talent-image">
+                            <img
+                                src="written-art.jpeg"
+                                alt="Writers & Storytellers"
+                            />
+                        </div>
+                        <div class="talent-description">
+                            <h3>Writers & Storytellers</h3>
+                            <p>
+                                Empowering compelling voices in literature,
+                                screenwriting, and digital content creation to
+                                share authentic Nigerian narratives.
+                            </p>
+                            <a href="talents.html" class="text-link"
+                                >Read Works</a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section project-feature">
+                <div class="container fade-up">
+                    <div class="project-feature-content">
+                        <div class="project-text">
+                            <h2 class="section-title-light">
+                                The Gifted Tower
+                            </h2>
+                            <p>
+                                A landmark initiative, The Gifted Tower will be
+                                a beacon of innovation and creativity – a
+                                multifaceted hub designed to foster a vibrant
+                                ecosystem for talent development and global
+                                collaboration.
+                            </p>
+                            <a href="projects.html" class="btn btn-secondary"
+                                >Explore The Project</a
+                            >
+                        </div>
+                        <div class="project-image-placeholder"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section why-partner-editorial">
+                <div class="container fade-up">
+                    <h2 class="section-title text-center">
                         Why Partner With Gifted?
                     </h2>
-                    <hr class="fade-up" />
-                    <div class="advantage-grid">
-                        <div class="advantage-card fade-up">
-                            <i class="fas fa-handshake"></i>
+                    <div class="partner-grid">
+                        <div class="partner-item">
                             <h3>Impactful Investment</h3>
                             <p>
                                 Invest in real talent, drive economic growth,
                                 and make a tangible difference in communities.
                             </p>
                         </div>
-                        <div class="advantage-card fade-up">
-                            <i class="fas fa-globe"></i>
+                        <div class="partner-item">
                             <h3>Global Reach</h3>
                             <p>
                                 Access a curated pool of exceptional Nigerian
                                 talents ready for international markets.
                             </p>
                         </div>
-                        <div class="advantage-card fade-up">
-                            <i class="fas fa-chart-line"></i>
+                        <div class="partner-item">
                             <h3>Sustainable Growth</h3>
                             <p>
                                 Be part of a sustainable model that champions
@@ -198,53 +295,25 @@
                     </div>
                 </div>
             </section>
-
-            <section class="section call-to-action">
-                <div class="container text-center fade-up">
-                    <h2>Are You a Gifted Talent?</h2>
-                    <p>
-                        If you believe you have exceptional talent in any of our
-                        core industries, we invite you to connect with us. Let's
-                        explore how Gifted can help unleash your potential to
-                        the world.
-                    </p>
-                    <a href="contact.html" class="btn btn-gold-solid"
-                        >Join Our Network</a
-                    >
-                </div>
-            </section>
         </main>
 
-        <footer>
+        <footer class="main-footer">
             <div class="container">
                 <div class="footer-content">
-                    <div class="footer-section contact-info">
-                        <p>
-                            <i class="fas fa-envelope"></i
-                            >giftedgifted001@gmail.com
-                        </p>
-                        <p><i class="fas fa-phone"></i>+234 907 330 9696</p>
+                    <div class="footer-logo">
+                        <img src="logo.png" alt="Gifted Logo" />
                     </div>
-                    <div class="footer-section social-links">
+                    <div class="footer-contact">
+                        <h3>Contact Us</h3>
+                        <p>giftedgifted001@gmail.com</p>
+                        <p>+234 907 330 9696</p>
+                    </div>
+                    <div class="footer-social">
                         <h3>Follow Us</h3>
-                        <a href="#" target="_blank"
-                            ><i class="fab fa-facebook-f"></i></a
-                        ><a href="#" target="_blank"
-                            ><i class="fab fa-twitter"></i></a
-                        ><a href="#" target="_blank"
-                            ><i class="fab fa-instagram"></i></a
-                        ><a href="#" target="_blank"
-                            ><i class="fab fa-linkedin-in"></i
-                        ></a>
-                    </div>
-                    <div class="footer-section whatsapp-chat">
-                        <h3>Chat With Us</h3>
-                        <a
-                            href="https://wa.me/+2349073309696"
-                            target="_blank"
-                            class="whatsapp-btn"
-                            ><i class="fab fa-whatsapp"></i> WhatsApp</a
-                        >
+                        <a href="#">Facebook</a>
+                        <a href="#">Twitter</a>
+                        <a href="#">Instagram</a>
+                        <a href="#">LinkedIn</a>
                     </div>
                 </div>
                 <div class="footer-bottom">

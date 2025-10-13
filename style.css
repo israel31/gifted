@@ -1,19 +1,15 @@
-/* === GIFTED WEBSITE REDESIGN - COMPLETE LIGHT THEME STYLESHEET === */
+/* === GIFTED WEBSITE REDESIGN - EDITORIAL & PRESTIGE THEME (FINAL) === */
 
-/* --- 1. Global Setup & Variables --- */
+/* --- 1. Global Setup, Fonts & Variables --- */
 :root {
     --primary-color: #273b55; /* Dark Blue for headings & key text */
     --secondary-color: #bc9245; /* Gold for accents & buttons */
-    --background-light: #f8f9fa; /* Very light grey for main background */
-    --background-white: #ffffff; /* White for cards */
-    --text-primary: #343a40; /* Dark grey for body text */
-    --text-secondary: #6c757d; /* Lighter grey for descriptions */
+    --background-light: #fdfdfd; /* A slightly warmer, premium white */
+    --text-primary: #333333; /* Dark grey for body text */
+    --text-secondary: #666666; /* Lighter grey for descriptions */
 
-    --font-heading: "Montserrat", sans-serif;
+    --font-heading: "Playfair Display", serif;
     --font-body: "Roboto", sans-serif;
-
-    --card-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-    --card-hover-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
 }
 
 * {
@@ -22,9 +18,14 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: var(--font-body);
-    line-height: 1.6;
+    font-weight: 300;
+    line-height: 1.7;
     color: var(--text-primary);
     background-color: var(--background-light);
     -webkit-font-smoothing: antialiased;
@@ -34,357 +35,373 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 0 20px;
 }
-
 h1,
 h2,
 h3,
-h4,
-h5,
-h6 {
+h4 {
     font-family: var(--font-heading);
     color: var(--primary-color);
     font-weight: 700;
-    margin-bottom: 15px;
-}
-h1 {
-    font-size: 3.5em;
-    line-height: 1.1;
-}
-h2 {
-    font-size: 2.5em;
-    margin-bottom: 30px;
-}
-h3 {
-    font-size: 1.8em;
 }
 p {
-    margin-bottom: 15px;
     color: var(--text-secondary);
+    margin-bottom: 1.5em;
 }
 a {
     text-decoration: none;
     color: var(--secondary-color);
+    transition: color 0.3s ease;
 }
-ul {
-    list-style: none;
+a:hover {
+    color: var(--primary-color);
 }
 .text-center {
     text-align: center;
 }
 
-hr {
-    border: none;
-    height: 2px;
-    background-color: var(--secondary-color);
-    opacity: 0.5;
-    width: 80px;
-    margin: -10px auto 40px auto;
-}
-
-/* --- 2. Buttons --- */
-.btn {
-    display: inline-block;
-    padding: 14px 30px;
-    border-radius: 8px;
-    font-weight: 600;
-    text-align: center;
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
-    cursor: pointer;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    font-family: var(--font-heading);
-}
-.btn-gold-solid {
-    background-color: var(--secondary-color);
-    color: var(--background-white);
-    border-color: var(--secondary-color);
-}
-.btn-gold-solid:hover {
-    background-color: #d1a95e;
-    border-color: #d1a95e;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(188, 146, 69, 0.4);
-}
-.btn-gold-outline {
-    background-color: transparent;
-    color: var(--secondary-color);
-    border-color: var(--secondary-color);
-}
-.btn-gold-outline:hover {
-    background-color: var(--secondary-color);
-    color: var(--background-white);
-}
-
-/* --- 3. Header & Navigation --- */
-.navbar {
-    background-color: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(15px);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    padding: 5px 40px;
+/* --- 2. Header & Navigation (Transparent to Solid) --- */
+.main-header {
     position: fixed;
-    width: 100%;
     top: 0;
+    left: 0;
+    width: 100%;
     z-index: 1000;
+    padding: 30px 0;
+    transition:
+        background-color 0.4s ease,
+        padding 0.4s ease,
+        box-shadow 0.4s ease;
+}
+.main-header.scrolled {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 20px 0;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.07);
+}
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.navbar .logo img {
-    height: 60px;
+.logo img {
+    height: 70px;
+    transition: height 0.4s ease;
+}
+.scrolled .logo img {
+    height: 55px;
 }
 
 .nav-links {
     display: flex;
     gap: 40px;
+    list-style: none;
 }
 .nav-links a {
-    color: var(--primary-color);
-    font-weight: 600;
-    position: relative;
+    color: #fff;
+    font-family: var(--font-body);
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 0.9em;
     padding-bottom: 5px;
+    position: relative;
+    transition: color 0.4s ease;
 }
-.nav-links a::after {
+.scrolled .nav-links a {
+    color: var(--primary-color);
+}
+.nav-links a.active,
+.nav-links a:hover {
+    color: var(--secondary-color);
+}
+.scrolled .nav-links a.active,
+.scrolled .nav-links a:hover {
+    color: var(--secondary-color);
+}
+.nav-links a.active::after {
     content: "";
     position: absolute;
     bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 5px;
+    height: 5px;
     background-color: var(--secondary-color);
-    transition: width 0.3s ease;
+    border-radius: 50%;
 }
-.nav-links a:hover::after,
-.nav-links a.active::after {
-    width: 100%;
-}
-.nav-links a:hover,
-.nav-links a.active {
-    color: var(--secondary-color);
-}
-
 .menu-toggle {
     display: none;
+    color: #fff;
     font-size: 1.5em;
+    transition: color 0.4s ease;
+}
+.scrolled .menu-toggle {
     color: var(--primary-color);
-    cursor: pointer;
 }
 
-/* --- 4. Hero Section --- */
-.hero-section {
-    background-attachment: fixed;
-    background:
-        linear-gradient(rgba(39, 59, 85, 0.5), rgba(39, 59, 85, 0.5)),
-        url("./hero-bg.png") no-repeat center center / cover;
-        background-attachment: fixed;
-    height: 90vh;
-    min-height: 700px;
+/* --- 3. Hero Video Section --- */
+.hero-video-section {
+    position: relative;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-}
-.hero-content h1 {
-    color: var(--background-white);
-    font-size: 4em;
-
-    margin-bottom: 20px;
-    text-shadow: 0 3px 15px rgba(0, 0, 0, 0.3);
-}
-.hero-content p {
-    font-size: 1.3em;
-    margin-bottom: 40px;
-    color: rgba(255, 255, 255, 0.9);
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
-.hero-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-} /* Space between buttons */
-
-/* --- 5. Content Sections & Cards --- */
-.section {
-    padding: 100px 0;
-}
-.section:nth-of-type(even) {
-    background-color: var(--background-white);
-}
-
-.card-floating {
-    background-color: var(--background-white);
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: var(--card-shadow);
-    border: 1px solid #e9ecef;
-}
-
-.talent-showcase-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 40px;
-}
-.talent-preview-card {
-    background-color: var(--background-white);
-    text-align: left;
-    border-radius: 15px;
-    box-shadow: var(--card-shadow);
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
+    color: #fff;
     overflow: hidden;
 }
-.talent-preview-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--card-hover-shadow);
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    object-fit: fill;
 }
-.talent-preview-card .card-image-wrapper {
-    height: 250px;
-    overflow: hidden;
-}
-.talent-preview-card .card-image-wrapper img {
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s ease;
+    background-color: rgba(39, 59, 85, 0.5);
+    z-index: 2;
 }
-.talent-preview-card:hover .card-image-wrapper img {
-    transform: scale(1.05);
+.hero-content {
+    position: relative;
+    z-index: 3;
 }
-.talent-preview-card .card-content {
-    padding: 30px;
+.hero-content h1 {
+    color: #fff;
+    font-size: 4em;
+    line-height: 1.2;
+    max-width: 900px;
+    margin: 0 auto 30px auto;
 }
-.talent-preview-card .card-content h3 {
-    font-size: 1.6em;
+.hero-content .hero-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.3em;
+    max-width: 700px;
+    margin: 0 auto 40px auto;
 }
-.talent-preview-card .card-content p {
-    min-height: 60px;
+.hero-content .btn {
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    font-size: 0.9em;
+    padding: 16px 35px;
+    border-radius: 50px;
 }
-
-/* Advantage Cards */
-.advantage-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
-    margin-top: 40px;
+.hero-content .btn:hover {
+    background-color: #fff;
+    color: var(--primary-color);
 }
-.advantage-card {
-    background-color: var(--background-white);
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: var(--card-shadow);
-    text-align: center;
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
+.scroll-down-link {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    z-index: 3;
+    color: #fff;
+    font-size: 1.5em;
+    animation: bounce 2s infinite ease-in-out;
 }
-.advantage-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--card-hover-shadow);
-}
-.advantage-card i {
-    font-size: 3em;
-    color: var(--secondary-color);
-    margin-bottom: 25px;
-}
-.advantage-card h3 {
-    font-size: 1.6em;
-}
-
-/* Gifted Tower Section */
-.tower-section {
-    display: flex;
-    align-items: center;
-    gap: 60px;
-}
-.tower-text {
-    flex: 1;
-}
-.tower-text h2 {
-    text-align: left;
-}
-.tower-image-placeholder {
-    flex: 1;
-    min-height: 450px;
-    border-radius: 12px;
-    background: url("./gifted-tower.jpeg") center center/cover;
-    box-shadow: var(--card-shadow);
+@keyframes bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translate(-50%, 0);
+    }
+    40% {
+        transform: translate(-50%, -15px);
+    }
+    60% {
+        transform: translate(-50%, -8px);
+    }
 }
 
-/* Call to Action Section */
-.call-to-action {
-    background-color: var(--primary-color);
-    padding: 80px 0;
+/* --- 4. Content Sections --- */
+.section {
+    padding: 120px 0;
 }
-.call-to-action h2 {
-    color: var(--secondary-color);
+.section-title {
+    font-size: 2.8em;
+    line-height: 1.3;
+    margin-bottom: 0.5em;
 }
-.call-to-action p {
-    color: rgba(0, 0, 0, 0.8);
+.section-title-light {
+    color: var(--background-light);
+    font-size: 2.8em;
+    line-height: 1.3;
+    margin-bottom: 0.5em;
 }
-
-/* --- 6. Footer --- */
-/* --- 6. FOOTER (COMPLETELY REBUILT) --- */
-footer {
-    background-color: #1a2c41;
-    color: #adb5bd;
-    padding: 60px 20px 30px 20px;
-}
-footer .footer-content {
-    display: flex;
-    justify-content: space-around; /* Changed for better spacing */
-    flex-wrap: wrap;
-    gap: 40px;
-    text-align: center; /* Center all content within sections */
-    max-width: 1000px;
-    margin: 0 auto;
-}
-footer .footer-section {
-    flex: 1;
-    min-width: 250px;
-}
-footer h3 {
-    color: var(--secondary-color);
-    margin-bottom: 20px;
-    font-size: 1.4em;
-}
-footer p {
-    font-size: 0.9em; /* Reduced text size */
-    color: #ced4da;
-    line-height: 1.8;
-}
-footer .social-links {
-    margin-top: 15px;
-}
-footer .social-links a {
-    color: #ced4da;
-    font-size: 1.8em; /* Slightly larger icons */
-    margin: 0 15px; /* More space between icons */
-    transition: color 0.3s ease;
-}
-footer .social-links a:hover {
-    color: var(--secondary-color);
-}
-footer .whatsapp-btn {
-    margin-top: 15px;
-}
-footer .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 30px;
-    margin-top: 40px;
-    text-align: center;
-    color: #6c757d;
+.text-link {
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
     font-size: 0.9em;
 }
 
-/* --- 7. Scroll Animation --- */
+/* About Intro Section */
+.about-intro {
+    padding: 80px 0;
+    border-bottom: 1px solid #eee;
+}
+.about-intro-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+.about-intro .section-title {
+    font-size: 2.5em;
+}
+.about-intro-link {
+    margin-top: 30px;
+}
+.about-intro-link a {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: 1.2em;
+}
+
+/* Talent Showcase Section */
+.talent-showcase-editorial .talent-feature {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+    align-items: center;
+    margin-bottom: 120px;
+}
+.talent-showcase-editorial .talent-feature-reverse {
+    grid-template-columns: 1fr 1.2fr;
+}
+.talent-feature-reverse .talent-image {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+}
+.talent-feature-reverse .talent-description {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+.talent-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.talent-description {
+    max-width: 400px;
+}
+.talent-description h3 {
+    font-size: 2.2em;
+    margin-bottom: 20px;
+}
+.talent-description p {
+    font-size: 1.1em;
+}
+.talent-description .text-link {
+    margin-top: 20px;
+    display: inline-block;
+}
+
+/* Project Feature (Tower) Section */
+.project-feature {
+    background-color: var(--primary-color);
+    color: var(--background-light);
+    padding: 0;
+}
+.project-feature-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+.project-text {
+    padding: 100px;
+}
+.project-text p {
+    color: rgba(255, 255, 255, 0.8);
+}
+.project-text .btn {
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+}
+.project-text .btn:hover {
+    background-color: #fff;
+    color: var(--primary-color);
+}
+.project-image-placeholder {
+    min-height: 600px;
+    background: url("gifted-tower.jpeg")
+        center center/cover;
+}
+
+/* Why Partner Section */
+.why-partner-editorial {
+    border-bottom: 1px solid #eee;
+}
+.why-partner-editorial .section-title {
+    margin-bottom: 60px;
+}
+.partner-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+    text-align: center;
+}
+.partner-item h3 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+/* --- 5. Footer --- */
+.main-footer {
+    background-color: #f0f0f0;
+    padding: 80px 0 40px 0;
+}
+.footer-content {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+.footer-logo img {
+    height: 70px;
+}
+.main-footer h3 {
+    font-family: var(--font-body);
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+}
+.footer-contact p,
+.footer-social a {
+    color: var(--text-secondary);
+    display: block;
+    margin-bottom: 10px;
+    font-size: 0.9em;
+}
+.footer-bottom {
+    border-top: 1px solid #ddd;
+    padding-top: 30px;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+/* --- 6. Scroll Animation --- */
 .fade-up {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(40px);
     transition:
         opacity 0.8s ease-out,
         transform 0.8s ease-out;
@@ -394,179 +411,109 @@ footer .footer-bottom {
     transform: translateY(0);
 }
 
-/* --- 8. Responsive Design --- */
+/* --- 7. Responsive Design (FINAL CORRECTED VERSION) --- */
+
 @media (max-width: 992px) {
-    h1 {
+    /* Tablet styles */
+    .hero-content h1 {
         font-size: 2.8em;
     }
-    h2 {
-        font-size: 2.2em;
-    }
-    .hero-content h1 {
-        font-size: 3.2em;
-        margin-top: 5rem;
-    }
-    .hero-content p {
+    .hero-content .hero-subtitle {
         font-size: 1.1em;
     }
 
-    .tower-section {
-        flex-direction: column;
+    .talent-showcase-editorial .talent-feature,
+    .talent-showcase-editorial .talent-feature-reverse {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        margin-bottom: 80px;
+    }
+    .talent-feature-reverse .talent-image {
+        grid-column: auto;
+        grid-row: auto;
+    }
+    .talent-feature-reverse .talent-description {
+        grid-column: auto;
+        grid-row: auto;
+    }
+    .talent-description {
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .project-feature-content {
+        grid-template-columns: 1fr;
+    }
+    .project-text {
+        padding: 80px 40px;
         text-align: center;
     }
-    .tower-text h2 {
-        text-align: center;
+    .project-image-placeholder {
+        min-height: 400px;
     }
-    .tower-image-placeholder {
-        min-height: 350px;
-        width: 100%;
+
+    .partner-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
     }
 }
 
 @media (max-width: 768px) {
+    /* Mobile phone styles */
     .menu-toggle {
         display: block;
-        z-index: 1001;
+        z-index: 1001; /* Ensure it stays on top */
+    }
+
+    /* FIXED: Changes the icon color to dark when menu is open */
+    .main-header.nav-open .menu-toggle {
+        color: var(--primary-color);
     }
 
     .nav-links {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 40px;
-        background-color: var(--background-white);
+        display: none;
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100vh;
+        background-color: #fff;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         z-index: 1000;
-        /* Animation properties */
-        opacity: 0;
-        transform: translateY(-100%);
-        pointer-events: none;
-        transition:
-            transform 0.5s ease-in-out,
-            opacity 0.5s ease-in-out;
     }
     .nav-links.active {
-        transform: translateY(0);
-        opacity: 1;
-        pointer-events: auto;
+        display: flex;
     }
-    .nav-links a {
-        font-size: 1.5em;
+
+    /* FIXED: Makes menu links dark on the white background */
+    .nav-links.active a {
+        color: var(--primary-color);
+    }
+    .nav-links.active a:hover,
+    .nav-links.active a.active {
+        color: var(--secondary-color);
+    }
+    /* Hides the small dot under active link in mobile menu */
+    .nav-links.active a.active::after {
+        display: none;
     }
 
     .hero-content h1 {
-        font-size: 2.5em;
+        font-size: 2.2em;
     }
-    .hero-content p {
-        font-size: 1em;
+    .section-title {
+        font-size: 2em;
     }
-    .hero-buttons {
-        flex-direction: column;
-        align-items: center;
+    .section-title-light {
+        font-size: 2em;
     }
-    .btn {
-        width: 90%;
-        max-width: 350px;
-        padding: 16px;
-    } /* Fix for button height/width */
-
-    .section {
-        padding: 80px 0;
-    }
-    .talent-showcase-grid,
-    .advantage-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* --- 9. DESKTOP-ONLY LAYOUT ENHANCEMENTS (LAPTOP & WIDER) --- */
-@media (min-width: 992px) {
-    /* --- NEW DESKTOP 'ABOUT' SECTION LAYOUT --- */
-    /* --- NEW DESKTOP 'ABOUT' SECTION LAYOUT (ADD THIS) --- */
-    .about-feature-section .container {
-        display: grid;
-        grid-template-columns: 1fr 1.5fr; /* Creates two columns */
-        grid-template-rows: auto auto;
-        gap: 0 60px; /* 0 vertical gap, 60px horizontal */
-        align-items: center;
-        /* Defines the layout areas */
-        grid-template-areas:
-            "title description"
-            "cta   description";
-    }
-
-    .about-feature-section .about-title {
-        grid-area: title; /* Assigns h2 to the 'title' area */
-        font-size: 2.8em;
-        text-align: left;
-    }
-
-    .about-feature-section .about-description {
-        grid-area: description; /* Assigns p to the 'description' area */
-        font-size: 1.2em;
-        line-height: 1.7;
-        color: var(--text-primary);
-        text-align: left;
-    }
-
-    .about-feature-section .about-cta {
-        grid-area: cta; /* Assigns button div to the 'cta' area */
-        margin-top: 20px;
-        text-align: left;
-    }
-
-    /* --- NEW DESKTOP 'GIFTED TOWER' LAYERED LAYOUT --- */
-    .tower-section-wrapper {
-        padding: 0; /* Remove padding to allow image to be full width */
-        background-color: var(--background-white);
-    }
-
-    .tower-section-wrapper .container {
-        max-width: none; /* Allow container to be full-width */
-        padding: 0;
-    }
-
-    .tower-section {
-        position: relative; /* Essential for layering */
-        display: block;
-        min-height: 600px;
-    }
-
-    .tower-image-placeholder {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        min-height: 600px;
-        z-index: 1;
-        border-radius: 0; /* Full bleed image */
-    }
-
-    .tower-text {
-        position: relative; /* Changed from absolute to relative */
-        z-index: 2;
-        max-width: 500px;
-        /* Position the card on the left side of the container */
-        margin-left: auto;
-        margin-right: auto;
-        left: calc(-50% + 600px); /* Centers the card within the left half */
-        top: 100px; /* Adjust vertical position */
-
-        background: rgba(255, 255, 255, 0.9);
-        backdrop-filter: blur(10px);
-    }
-
-    .tower-text h2 {
-        text-align: left;
-    }
-
-    .tower-text p {
-        text-align: left;
+    .about-intro .section-title {
+        font-size: 1.8em;
     }
 }
