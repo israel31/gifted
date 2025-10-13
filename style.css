@@ -177,6 +177,7 @@ hr {
     background:
         linear-gradient(rgba(39, 59, 85, 0.5), rgba(39, 59, 85, 0.5)),
         url("./hero-bg.png") no-repeat center center/cover;
+    background-attachment: fixed;
     height: 90vh;
     min-height: 700px;
     display: flex;
