@@ -1,0 +1,680 @@
+/* === GIFTED WEBSITE REDESIGN - EDITORIAL & PRESTIGE THEME (FINAL) === */
+
+/* --- 1. Global Setup, Fonts & Variables --- */
+:root {
+    --primary-color: #273b55; /* Dark Blue for headings & key text */
+    --secondary-color: #bc9245; /* Gold for accents & buttons */
+    --background-light: #fdfdfd; /* A slightly warmer, premium white */
+    --text-primary: #333333; /* Dark grey for body text */
+    --text-secondary: #666666; /* Lighter grey for descriptions */
+
+    --font-heading: "Playfair Display", serif;
+    --font-body: "Roboto", sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--text-primary);
+    background-color: var(--background-light);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    font-weight: 700;
+}
+p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5em;
+}
+a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    transition: color 0.3s ease;
+}
+a:hover {
+    color: var(--primary-color);
+}
+.text-center {
+    text-align: center;
+}
+
+/* --- 2. Header & Navigation (Transparent to Solid) --- */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 30px 0;
+    transition:
+        background-color 0.4s ease,
+        padding 0.4s ease,
+        box-shadow 0.4s ease;
+}
+.main-header.scrolled {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 20px 0;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.07);
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo img {
+    height: 70px;
+    transition: height 0.4s ease;
+}
+.scrolled .logo img {
+    height: 55px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+}
+.nav-links a {
+    color: #fff;
+    font-family: var(--font-body);
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    padding-bottom: 5px;
+    position: relative;
+    transition: color 0.4s ease;
+}
+.scrolled .nav-links a {
+    color: var(--primary-color);
+}
+.nav-links a.active,
+.nav-links a:hover {
+    color: var(--secondary-color);
+}
+.scrolled .nav-links a.active,
+.scrolled .nav-links a:hover {
+    color: var(--secondary-color);
+}
+.nav-links a.active::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 5px;
+    height: 5px;
+    background-color: var(--secondary-color);
+    border-radius: 50%;
+}
+.menu-toggle {
+    display: none;
+    color: #fff;
+    font-size: 1.5em;
+    transition: color 0.4s ease;
+}
+.scrolled .menu-toggle {
+    color: var(--primary-color);
+}
+
+/* --- 3. Hero Video Section --- */
+.hero-video-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+}
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    object-fit: fill;
+}
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(39, 59, 85, 0.5);
+    z-index: 2;
+}
+.hero-content {
+    position: relative;
+    z-index: 3;
+}
+.hero-content h1 {
+    color: #fff;
+    font-size: 4em;
+    line-height: 1.2;
+    max-width: 900px;
+    margin: 0 auto 30px auto;
+}
+.hero-content .hero-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.3em;
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+}
+.hero-content .btn {
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    font-size: 0.9em;
+    padding: 16px 35px;
+    border-radius: 50px;
+}
+.hero-content .btn:hover {
+    background-color: #fff;
+    color: var(--primary-color);
+}
+.scroll-down-link {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    z-index: 3;
+    color: #fff;
+    font-size: 1.5em;
+    animation: bounce 2s infinite ease-in-out;
+}
+@keyframes bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translate(-50%, 0);
+    }
+    40% {
+        transform: translate(-50%, -15px);
+    }
+    60% {
+        transform: translate(-50%, -8px);
+    }
+}
+
+/* --- 4. Content Sections --- */
+.section {
+    padding: 120px 0;
+}
+.section-title {
+    font-size: 2.8em;
+    line-height: 1.3;
+    margin-bottom: 0.5em;
+}
+.section-title-light {
+    color: var(--background-light);
+    font-size: 2.8em;
+    line-height: 1.3;
+    margin-bottom: 0.5em;
+}
+.text-link {
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+/* About Intro Section */
+.about-intro {
+    padding: 80px 0;
+    border-bottom: 1px solid #eee;
+}
+.about-intro-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+.about-intro .section-title {
+    font-size: 2.5em;
+}
+.about-intro-link {
+    margin-top: 30px;
+}
+.about-intro-link a {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: 1.2em;
+}
+
+/* Talent Showcase Section */
+.talent-showcase-editorial .talent-feature {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+    align-items: center;
+    margin-bottom: 120px;
+}
+.talent-showcase-editorial .talent-feature-reverse {
+    grid-template-columns: 1fr 1.2fr;
+}
+.talent-feature-reverse .talent-image {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+}
+.talent-feature-reverse .talent-description {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+.talent-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.talent-description {
+    max-width: 400px;
+}
+.talent-description h3 {
+    font-size: 2.2em;
+    margin-bottom: 20px;
+}
+.talent-description p {
+    font-size: 1.1em;
+}
+.talent-description .text-link {
+    margin-top: 20px;
+    display: inline-block;
+}
+
+/* Project Feature (Tower) Section */
+.project-feature {
+    background-color: var(--primary-color);
+    color: var(--background-light);
+    padding: 0;
+}
+.project-feature-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+.project-text {
+    padding: 100px;
+}
+.project-text p {
+    color: rgba(255, 255, 255, 0.8);
+}
+.project-text .btn {
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+}
+.project-text .btn:hover {
+    background-color: #fff;
+    color: var(--primary-color);
+}
+.project-image-placeholder {
+    min-height: 600px;
+    background: url("gifted-tower.jpeg")
+        center center/cover;
+}
+
+/* Why Partner Section */
+.why-partner-editorial {
+    border-bottom: 1px solid #eee;
+}
+.why-partner-editorial .section-title {
+    margin-bottom: 60px;
+}
+.partner-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+    text-align: center;
+}
+.partner-item h3 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+/* --- 5. Footer --- */
+.main-footer {
+    background-color: #f0f0f0;
+    padding: 80px 0 40px 0;
+}
+.footer-content {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+.footer-logo img {
+    height: 70px;
+}
+.main-footer h3 {
+    font-family: var(--font-body);
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+}
+.footer-contact p,
+.footer-social a {
+    color: var(--text-secondary);
+    display: block;
+    margin-bottom: 10px;
+    font-size: 0.9em;
+}
+.footer-bottom {
+    border-top: 1px solid #ddd;
+    padding-top: 30px;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+/* --- 6. Scroll Animation --- */
+.fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition:
+        opacity 0.8s ease-out,
+        transform 0.8s ease-out;
+}
+.fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- 7. Responsive Design (FINAL CORRECTED VERSION) --- */
+
+@media (max-width: 992px) {
+    /* Tablet styles */
+    .hero-content h1 {
+        font-size: 2.8em;
+    }
+    .hero-content .hero-subtitle {
+        font-size: 1.1em;
+    }
+
+    .talent-showcase-editorial .talent-feature,
+    .talent-showcase-editorial .talent-feature-reverse {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        margin-bottom: 80px;
+    }
+    .talent-feature-reverse .talent-image {
+        grid-column: auto;
+        grid-row: auto;
+    }
+    .talent-feature-reverse .talent-description {
+        grid-column: auto;
+        grid-row: auto;
+    }
+    .talent-description {
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .project-feature-content {
+        grid-template-columns: 1fr;
+    }
+    .project-text {
+        padding: 80px 40px;
+        text-align: center;
+    }
+    .project-image-placeholder {
+        min-height: 400px;
+    }
+
+    .partner-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Mobile phone styles */
+    .menu-toggle {
+        display: block;
+        z-index: 1001; /* Ensure it stays on top */
+    }
+
+    /* FIXED: Changes the icon color to dark when menu is open */
+    .main-header.nav-open .menu-toggle {
+        color: var(--primary-color);
+    }
+
+    .nav-links {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: #fff;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+    .nav-links.active {
+        display: flex;
+    }
+
+    /* FIXED: Makes menu links dark on the white background */
+    .nav-links.active a {
+        color: var(--primary-color);
+    }
+    .nav-links.active a:hover,
+    .nav-links.active a.active {
+        color: var(--secondary-color);
+    }
+    /* Hides the small dot under active link in mobile menu */
+    .nav-links.active a.active::after {
+        display: none;
+    }
+
+    .hero-content h1 {
+        font-size: 2.2em;
+    }
+    .section-title {
+        font-size: 2em;
+    }
+    .section-title-light {
+        font-size: 2em;
+    }
+    .about-intro .section-title {
+        font-size: 1.8em;
+    }
+}
+
+/* --- 8. STYLES FOR NEW SUB-PAGES (ADD TO END OF CSS) --- */
+
+/* Page Hero for all sub-pages */
+.page-hero {
+    background-color: #f0f0f0;
+    padding: 160px 0 80px 0;
+    text-align: center;
+}
+.page-hero h1 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+}
+.page-hero p {
+    font-size: 1.3em;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* About Page Lists */
+.value-list, .impact-list {
+    list-style: none;
+    padding-left: 0;
+    text-align: left;
+    margin-top: 15px;
+}
+.value-list li, .impact-list li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 10px;
+    font-size: 1em;
+    color: var(--text-secondary);
+}
+.value-list li strong {
+    color: var(--text-primary);
+}
+.value-list li::before, .impact-list li::before {
+    content: '•';
+    color: var(--secondary-color);
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+/* Projects Page */
+.project-feature-page .project-feature-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    background-color: var(--primary-color);
+    color: var(--background-light);
+}
+.project-feature-page .project-text { padding: 100px; }
+.project-feature-page .project-text p { color: rgba(255, 255, 255, 0.8); }
+.project-feature-page .project-image-placeholder {
+    min-height: 600px;
+    background: url('https://via.placeholder.com/800x600/BC9245/FFFFFF?text=Gifted+Tower') center center/cover;
+}
+.partner-grid.grid-3-col {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+.partner-grid .partner-item i {
+    font-size: 2.5em;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+.roadmap-image-placeholder img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 20px;
+}
+.roadmap-note {
+    text-align: center;
+    font-size: 0.9em;
+    font-style: italic;
+    color: var(--text-secondary);
+}
+
+/* Simple CTA Section (Talents & Investors) */
+.simple-cta {
+    background-color: #f0f0f0;
+}
+.simple-cta h2 {
+    font-size: 2.5em;
+}
+.simple-cta p {
+    font-size: 1.1em;
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+}
+.simple-cta .btn-primary {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+.simple-cta .btn-primary:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #fff;
+}
+
+/* Contact Page Form */
+.contact-form-editorial {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.contact-form-editorial .form-group {
+    margin-bottom: 25px;
+}
+.contact-form-editorial label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 400;
+    font-size: 0.9em;
+    color: var(--text-primary);
+}
+.contact-form-editorial input[type="text"],
+.contact-form-editorial input[type="email"],
+.contact-form-editorial select,
+.contact-form-editorial textarea {
+    width: 100%;
+    padding: 18px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 5px;
+    font-size: 1em;
+    font-family: var(--font-body);
+    color: var(--text-primary);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.contact-form-editorial input[type="text"]:focus,
+.contact-form-editorial input[type="email"]:focus,
+.contact-form-editorial select:focus,
+.contact-form-editorial textarea:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(188, 146, 69, 0.2);
+    outline: none;
+}
+.contact-form-editorial button[type="submit"] {
+    display: block;
+    margin: 20px auto 0 auto;
+}
+
+/* Responsive fixes for new sections */
+@media (max-width: 992px) {
+    .page-hero { padding: 140px 0 60px 0; }
+    .page-hero h1 { font-size: 2.8em; }
+    
+    .project-feature-page .project-feature-content { grid-template-columns: 1fr; }
+    .project-feature-page .project-text { padding: 80px 40px; text-align: center; }
+    .project-feature-page .project-image-placeholder { min-height: 400px; }
+}
+
+@media (max-width: 768px) {
+    .page-hero h1 { font-size: 2.2em; }
+    .page-hero p { font-size: 1em; }
+}

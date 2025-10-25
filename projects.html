@@ -1,55 +1,40 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Gifted - Projects & The Gifted Tower</title>
-        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="new-style.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
-            rel="stylesheet"
-        />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-        />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-        />
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     </head>
     <body>
-        <header>
-            <nav class="navbar">
-                <div class="logo">
-                    <a href="index.html">
-                        <img src="logo.png" alt="Gifted Logo" />
-                        <h1>GIFTED</h1>
-                    </a>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Gifted</a></li>
-                    <li><a href="talents.html">Talents / Industries</a></li>
-                    <li>
-                        <a href="projects.html" class="active"
-                            >Projects / Gifted Tower</a
-                        >
-                    </li>
-                    <li><a href="investors.html">Investors / Partners</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-                <div class="menu-toggle">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </nav>
+        <header class="main-header">
+            <div class="container">
+                <nav class="navbar">
+                    <div class="logo">
+                        <a href="index.html"><img src="logo.png" alt="Gifted Logo" /></a>
+                    </div>
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="talents.html">Talents</a></li>
+                        <li><a href="projects.html" class="active">Projects</a></li>
+                        <li><a href="investors.html">Investors</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                    <div class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </nav>
+            </div>
         </header>
 
         <main>
-            <section class="page-hero projects-hero">
-                <div class="container">
+            <section class="page-hero">
+                <div class="container fade-up">
                     <h1>Our Visionary Projects</h1>
                     <p>
                         Leading the charge with transformative initiatives,
@@ -58,12 +43,11 @@
                 </div>
             </section>
 
-            <section class="section Gifted-tower-overview">
-                <div class="container">
-                    <h2>The Gifted Tower: A Hub of Innovation</h2>
-                    <br />
-                    <div class="tower-intro-content">
-                        <div class="tower-intro-text">
+            <section class="section project-feature-page">
+                <div class="container fade-up">
+                    <div class="project-feature-content">
+                        <div class="project-text">
+                            <h2 class="section-title-light">The Gifted Tower: A Hub of Innovation</h2>
                             <p>
                                 The Gifted Tower stands as the physical
                                 embodiment of our vision – a state-of-the-art,
@@ -82,32 +66,18 @@
                                 Nigerian talents and international stakeholders
                                 alike.
                             </p>
-                            <a href="#tower-sections" class="btn btn-primary"
-                                >Explore Tower Sections</a
-                            >
-                            <br />
                         </div>
-                        <br />
-                        <br />
-                        <div class="tower-image-large-placeholder">
-                            <span
-                                >[Architectural Rendering of The Gifted
-                                Tower]</span
-                            >
-                        </div>
+                        <div class="project-image-placeholder"></div>
                     </div>
                 </div>
             </section>
 
-            <section id="tower-sections" class="section tower-sections">
+            <section class="section tower-sections">
                 <div class="container">
-                    <h2>Key Sections of The Gifted Tower</h2>
-                    <br />
-                    <div class="tower-features-grid">
-                        <div class="feature-card">
-                            <div class="card-icon">
-                                <i class="fas fa-store"></i>
-                            </div>
+                    <h2 class="section-title text-center fade-up">Key Sections of The Gifted Tower</h2>
+                    <div class="partner-grid grid-3-col fade-up">
+                        <div class="partner-item">
+                            <i class="fas fa-store"></i>
                             <h3>Mall of Talents</h3>
                             <p>
                                 An exclusive retail space showcasing authentic,
@@ -116,10 +86,8 @@
                                 experience.
                             </p>
                         </div>
-                        <div class="feature-card">
-                            <div class="card-icon">
-                                <i class="fas fa-paint-roller"></i>
-                            </div>
+                        <div class="partner-item">
+                            <i class="fas fa-paint-roller"></i>
                             <h3>Creative Studios</h3>
                             <p>
                                 State-of-the-art facilities for artists,
@@ -127,10 +95,8 @@
                                 create, collaborate, and refine their craft.
                             </p>
                         </div>
-                        <div class="feature-card">
-                            <div class="card-icon">
-                                <i class="fas fa-hotel"></i>
-                            </div>
+                        <div class="partner-item">
+                            <i class="fas fa-hotel"></i>
                             <h3>Elite Lodges</h3>
                             <p>
                                 Premium accommodation for visiting international
@@ -138,10 +104,8 @@
                                 comfort and convenience within the creative hub.
                             </p>
                         </div>
-                        <div class="feature-card">
-                            <div class="card-icon">
-                                <i class="fas fa-chart-area"></i>
-                            </div>
+                        <div class="partner-item">
+                            <i class="fas fa-chart-area"></i>
                             <h3>Arena & Event Spaces</h3>
                             <p>
                                 Versatile venues for concerts, exhibitions,
@@ -149,10 +113,8 @@
                                 festivals, designed to host global spectacles.
                             </p>
                         </div>
-                        <div class="feature-card">
-                            <div class="card-icon">
-                                <i class="fas fa-utensils"></i>
-                            </div>
+                        <div class="partner-item">
+                            <i class="fas fa-utensils"></i>
                             <h3>Culinary Experiences</h3>
                             <p>
                                 Fine dining and diverse eateries celebrating
@@ -160,10 +122,8 @@
                                 vibrant social and networking atmosphere.
                             </p>
                         </div>
-                        <div class="feature-card">
-                            <div class="card-icon">
-                                <i class="fas fa-users"></i>
-                            </div>
+                        <div class="partner-item">
+                            <i class="fas fa-users"></i>
                             <h3>Co-working & Innovation Hubs</h3>
                             <p>
                                 Dynamic shared workspaces and incubation centers
@@ -176,19 +136,15 @@
             </section>
 
             <section class="section project-roadmap">
-                <div class="container">
-                    <h2>Gifted Tower Development Roadmap</h2>
-                    <br />
-                    <p class="section-description">
+                <div class="container fade-up">
+                    <h2 class="section-title text-center">Gifted Tower Development Roadmap</h2>
+                    <p class="text-center" style="max-width: 800px; margin: 0 auto 40px auto;">
                         Our ambitious plan for The Gifted Tower is meticulously
                         phased to ensure sustainable development and timely
                         delivery. Here’s a look at our journey:
                     </p>
                     <div class="roadmap-image-placeholder">
-                        <span
-                            >[Image placeholder for Gifted Tower Project
-                            Timeline/Roadmap]</span
-                        >
+                        <img src="gifted-tower.jpeg" alt="Gifted Tower Roadmap">
                     </div>
                     <p class="roadmap-note">
                         For detailed project milestones and investor-specific
@@ -199,45 +155,27 @@
             </section>
         </main>
 
-        <footer>
+        <footer class="main-footer">
             <div class="container">
                 <div class="footer-content">
-                    <div class="footer-section contact-info">
+                    <div class="footer-logo">
+                        <img src="logo.png" alt="Gifted Logo">
+                    </div>
+                    <div class="footer-contact">
                         <h3>Contact Us</h3>
-                        <p>
-                            <i class="fas fa-envelope"></i
-                            >giftedgifted001@gmail.com
-                        </p>
-                        <p><i class="fas fa-phone"></i>+234 907 330 9696</p>
+                        <p>giftedgifted001@gmail.com</p>
+                        <p>+234 907 330 9696</p>
                     </div>
-                    <div class="footer-section social-links">
-                        <h3>Follow Us</h3>
-                        <a href="#" target="_blank"
-                            ><i class="fab fa-facebook-f"></i
-                        ></a>
-                        <a href="#" target="_blank"
-                            ><i class="fab fa-twitter"></i
-                        ></a>
-                        <a href="#" target="_blank"
-                            ><i class="fab fa-instagram"></i
-                        ></a>
-                        <a href="#" target="_blank"
-                            ><i class="fab fa-linkedin-in"></i
-                        ></a>
-                    </div>
-                    <div class="footer-section whatsapp-chat">
-                        <h3>Chat With Us</h3>
-                        <a
-                            href="https://wa.me/+234907 3309696"
-                            target="_blank"
-                            class="whatsapp-btn"
-                        >
-                            <i class="fab fa-whatsapp"></i> WhatsApp
-                        </a>
+                    <div class="footer-social">
+                         <h3>Follow Us</h3>
+                        <a href="#">Facebook</a>
+                        <a href="#">Twitter</a>
+                        <a href="#">Instagram</a>
+                        <a href="#">LinkedIn</a>
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    <p>&copy; 2023 Gifted. All rights reserved.</p>
+                    <p>&copy; 2025 Gifted. All rights reserved.</p>
                 </div>
             </div>
         </footer>
