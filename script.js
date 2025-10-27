@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const header = document.querySelector('.main-header');
     if (header) {
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
+            if (window.scrollY > 50) { // When scrolled more than 50px
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
@@ -19,11 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (menuToggle && navLinks) {
         menuToggle.addEventListener('click', function() {
             navLinks.classList.toggle('active');
-            
-            // NEW: Add a class to the header to control icon color
             header.classList.toggle('nav-open'); 
-
-            // This part correctly swaps the icon shape
             const icon = menuToggle.querySelector('i');
             icon.classList.toggle('fa-bars');
             icon.classList.toggle('fa-times');
@@ -48,4 +44,27 @@ document.addEventListener('DOMContentLoaded', function() {
             observer.observe(element);
         });
     }
+
+    // --- NEW: Contact Form Logic ---
+    const contactForm = document.querySelector('.contact-form-editorial');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (ev) => {
+            ev.preventDefault(); // Stop the form from submitting
+            
+            // Get values from the form
+            const name = contactForm.querySelector('[name="name"]').value;
+            const email = contactForm.querySelector('[name="email"]').value;
+            const msg = contactForm.querySelector('[name="message"]').value;
+            
+            // **IMPORTANT: Change this to your real email address**
+            const yourEmail = 'giftedgifted001@gmail.com'; 
+
+            const subject = encodeURIComponent('GiFTED Contact - ' + name);
+            const body = encodeURIComponent(`${msg}\n\nFrom: ${name} <${email}>`);
+            
+            // Open the user's default email client
+            window.location.href = `mailto:${yourEmail}?subject=${subject}&body=${body}`;
+        });
+    }
+
 });
