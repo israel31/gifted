@@ -282,6 +282,7 @@ a:hover {
     margin-bottom: 120px;
 }
 .talent-showcase-editorial .talent-feature-reverse {
+    display: grid;
     grid-template-columns: 1fr 1.2fr;
 }
 .talent-feature-reverse .talent-image {
@@ -306,6 +307,7 @@ a:hover {
 }
 .talent-description p {
     font-size: 1.1em;
+    font-weight: 500;
 }
 .talent-description .text-link {
     margin-top: 20px;
