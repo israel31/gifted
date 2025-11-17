@@ -342,8 +342,10 @@ a:hover {
 }
 .project-image-placeholder {
     min-height: 600px;
-    background: url("gifted-tower.jpeg")
-        center center/cover;
+    background-image: url("gifted-tower.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 /* Why Partner Section */
@@ -577,7 +579,7 @@ a:hover {
 .project-feature-page .project-text p { color: rgba(255, 255, 255, 0.8); }
 .project-feature-page .project-image-placeholder {
     min-height: 600px;
-    background: url('https://via.placeholder.com/800x600/BC9245/FFFFFF?text=Gifted+Tower') center center/cover;
+    background: url('gifted-tower.png') center center/cover;
 }
 .partner-grid.grid-3-col {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));

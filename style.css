@@ -340,7 +340,7 @@ a:hover {
 }
 .project-image-placeholder {
     min-height: 600px;
-    background: url("gifted-tower.jpeg")
+    background: url("gifted-tower.png")
         center center/cover;
 }
 
